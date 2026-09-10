@@ -2,8 +2,22 @@
 
 A one-page site for Drakthys, the Counter-Strike 2 org: hero, sponsors, stats,
 about, news, roster, shop (with category filtering), match schedule/results,
-and a footer with a newsletter signup. Dark theme, `Anton` display type +
-`Inter` body type, crimson accent.
+and a footer with a newsletter signup.
+
+**Design concept — "field dossier":** a tactical CS2 briefing crossed with
+dragon heraldry, instead of the generic red/black esports-template look.
+Corner-bracket frames (HUD reticle corners) stand in for the usual
+diagonal-cut cards. A faint grid-line texture and one slow scan-line sweep
+through the hero read as a minimap/radar. Section headings get a small
+monospace "eyebrow" label (`— WHO WE ARE`, `— ACTIVE ROSTER`, `— SUPPLY`)
+like a dossier's classification line. Two accents split duties: **ember**
+(`#ff5a1f`, a dragon-fire orange) for actions and alerts, **brass**
+(`#c9a227`) for structural labels and dividers. Type is `Big Shoulders
+Display` (condensed, industrial headlines), `Cinzel` (inscriptional serif,
+used only for the DRAKTHYS wordmark — the heraldry note), `IBM Plex Sans`
+for body copy, and `IBM Plex Mono` for every stat, price, date and label —
+the "data readout" layer. Dark-only by design (this is a brand identity,
+not a UI that should flip with a visitor's OS theme).
 
 ## Edit it and preview it live
 
@@ -77,13 +91,14 @@ file as the markup rather than kept separate.
 
 3. **CSS** — paste `ghl/ghl-style.css` into the page/funnel's Custom CSS
    field (Settings → Custom CSS, or the page editor's CSS panel). It opens
-   with an `@import` for the Anton + Inter Google Fonts, so it's
-   self-contained — no separate font setup needed. If your GHL plan strips
-   `@import` from that field, add the two lines below to **Settings →
-   Custom CSS/JS → Head Tracking Code** instead:
+   with an `@import` for the four Google Fonts (Big Shoulders Display,
+   Cinzel, IBM Plex Sans, IBM Plex Mono), so it's self-contained — no
+   separate font setup needed. If your GHL plan strips `@import` from that
+   field, add the two lines below to **Settings → Custom CSS/JS → Head
+   Tracking Code** instead:
    ```html
    <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Cinzel:wght@500;600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
    ```
 
 4. **HTML + JS** — add a Custom HTML element to the page (page editor →
@@ -126,4 +141,4 @@ Everything a non-developer would want to change lives in plain markup:
   opponent, event name, format tag or score.
 - **News** — `.news-grid` cards: date, headline, blurb.
 - **Colors** — all in one place at the top of `drakthysghl.css`, under
-  `:root` (`--crimson`, `--black`, etc.).
+  `:root` (`--ember`, `--brass`, `--ink`, etc.).
