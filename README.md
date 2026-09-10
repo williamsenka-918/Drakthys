@@ -5,7 +5,19 @@ about, news, roster, shop (with category filtering), match schedule/results,
 and a footer with a newsletter signup. Dark theme, `Anton` display type +
 `Inter` body type, crimson accent.
 
-## Preview it
+## Edit it and preview it live
+
+**Live editor:** https://claude.ai/code/artifact/2ec1598a-3084-4193-96a0-38cc68f6d6a1
+
+Two panes: your CSS/HTML+JS on the left (tabs to switch between them), a live
+render of the site on the right that updates as you type (with a Desktop /
+Mobile width toggle). Edits autosave to your browser as you go, so closing
+the tab and coming back keeps your work — "Reset to original" wipes that and
+restores the shipped version. When you're happy with a change, hit **Copy
+CSS** / **Copy HTML+JS** and paste the result into GHL (see below) or back
+into the `ghl/` files in this repo.
+
+## Preview it (read-only)
 
 **Live preview:** https://claude.ai/code/artifact/8504a4b2-3929-425f-95cc-f316ff3929cc
 
