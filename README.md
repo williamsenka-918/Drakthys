@@ -28,13 +28,14 @@ ghl/
                             assets/images/... instead of inline base64
 
   ghl-style.css             ← paste into GHL's Custom CSS field
-  ghl-body.html             ← paste into a GHL Custom HTML element
-  ghl-script.js             ← paste into GHL's footer/tracking JS
+  ghl-html-js.html          ← paste into a GHL Custom HTML element
+                            (markup + the <script> block together)
 
-  ghl-paste-snippet.html     all three of the above combined into one
-                            block, for pasting into a single element instead
-preview-ghl-snippet.html    (repo root) local test render of the combined snippet
-preview-ghl-split.html      (repo root) local test render of the 3 split files
+  ghl-paste-snippet.html     CSS + HTML + JS all combined into one block,
+                            for pasting into a single element instead
+preview-ghl-2file.html      (repo root) local test render of ghl-style.css
+                            + ghl-html-js.html together, for previewing
+                            exactly what you're about to paste into GHL
 ```
 
 `index.html` embeds the images as base64 so it's one portable file. GHL
@@ -43,16 +44,17 @@ Custom HTML element's size limit), so the GHL-facing files reference the
 images as separate files instead — upload them once to Media Storage and
 link to them.
 
-## Pasting into GoHighLevel (3 separate files)
+## Pasting into GoHighLevel (2 files: CSS + HTML/JS)
 
-GHL has three natural places for this: a Custom CSS field, a Custom HTML
-element, and a footer/tracking JS field. Use the three `ghl-*` files for that:
+GHL has a Custom CSS field and a Custom HTML element; JS can live right in
+the HTML element as a `<script>` tag, so the JS is bundled into the same
+file as the markup rather than kept separate.
 
 1. **Upload the images.** In GHL: *Sites → Media Storage*, upload all 6 files
    from `assets/images/`. After uploading, open each file and copy its URL.
 
-2. **Open `ghl/ghl-body.html`** and find/replace each of these paths with the
-   matching URL you just copied:
+2. **Open `ghl/ghl-html-js.html`** and find/replace each of these paths with
+   the matching URL you just copied:
    - `assets/images/drakthys-logo.jpg` (used 4×: nav logo, hero emblem,
      footer logo, shop "Sticker Pack" image)
    - `assets/images/drakthys-snow-washed-tee-front.png`
@@ -72,34 +74,24 @@ element, and a footer/tracking JS field. Use the three `ghl-*` files for that:
    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
    ```
 
-4. **HTML** — add a Custom HTML element to the page (page editor → *+ Add
-   Element → Custom HTML*) and paste the contents of `ghl/ghl-body.html`
-   (after step 2's find/replace) into it.
+4. **HTML + JS** — add a Custom HTML element to the page (page editor →
+   *+ Add Element → Custom HTML*) and paste the entire contents of
+   `ghl/ghl-html-js.html` (after step 2's find/replace) into it. It already
+   ends with the `<script>...</script>` block, so nothing else to add.
 
-5. **JS** — paste `ghl/ghl-script.js` into **Settings → Custom CSS/JS →
-   Footer Tracking Code**, wrapped in `<script>` tags:
-   ```html
-   <script>
-   ...contents of ghl-script.js...
-   </script>
-   ```
-   (If your GHL page doesn't have a footer tracking field, add another
-   Custom HTML element right after the first one with the script tags
-   included.)
-
-6. Because the whole nav/hero/roster/shop/matches section is one HTML block,
+5. Because the whole nav/hero/roster/shop/matches section is one HTML block,
    editing copy (player names, stats, prices, match dates, news posts) is
    just editing text directly inside that Custom HTML element in GHL — no
    rebuild needed. For anything structural (new sections, layout changes),
    edit `ghl/drakthysghl.html`/`.css`/`.js` here first, regenerate the `ghl-*`
    files the same way, then re-paste.
 
-### Prefer one paste instead of three fields?
+### Prefer one paste instead of two fields?
 
-Use `ghl/ghl-paste-snippet.html` — it's the same CSS/HTML/JS combined into a
-single block (fonts `<link>` + `<style>` + markup + `<script>`) for pasting
-into one Custom HTML element, if your GHL page doesn't expose separate
-CSS/JS fields.
+Use `ghl/ghl-paste-snippet.html` — CSS + HTML + JS all combined into a single
+block (fonts `<link>` + `<style>` + markup + `<script>`) for pasting into one
+Custom HTML element, if your GHL page doesn't expose a separate Custom CSS
+field.
 
 ### Why not paste the images as base64 into GHL too?
 
