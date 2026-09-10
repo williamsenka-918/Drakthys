@@ -21,31 +21,38 @@ assets/images/            ← the 6 real images used on the site, extracted
                             and de-duplicated (the logo/dragon mark is reused
                             4 places, so it's stored once)
 ghl/
-  drakthysghl.html         original body markup, untouched
-  drakthysghl.css          original stylesheet, untouched
-  drakthysghl.js           original interactivity, untouched
+  drakthysghl.html          original body markup, untouched (base64 images)
+  drakthysghl.css           original stylesheet, untouched
+  drakthysghl.js            original interactivity, untouched
   drakthysghl-lite.html     same markup, but with images pointed at
                             assets/images/... instead of inline base64
-  ghl-paste-snippet.html    ← the file to paste into GoHighLevel (see below)
-  preview-ghl-snippet.html  (repo root) local test render of that snippet
+
+  ghl-style.css             ← paste into GHL's Custom CSS field
+  ghl-body.html             ← paste into a GHL Custom HTML element
+  ghl-script.js             ← paste into GHL's footer/tracking JS
+
+  ghl-paste-snippet.html     all three of the above combined into one
+                            block, for pasting into a single element instead
+preview-ghl-snippet.html    (repo root) local test render of the combined snippet
+preview-ghl-split.html      (repo root) local test render of the 3 split files
 ```
 
 `index.html` embeds the images as base64 so it's one portable file. GHL
-doesn't work that way, so `ghl-paste-snippet.html` was built as a lighter
-version (~35KB vs ~6.9MB) that references the images as separate files —
-that's the one meant for GHL.
+doesn't work that way (6.9MB of base64 is slow to paste and may exceed a
+Custom HTML element's size limit), so the GHL-facing files reference the
+images as separate files instead — upload them once to Media Storage and
+link to them.
 
-## Pasting into GoHighLevel
+## Pasting into GoHighLevel (3 separate files)
 
-GHL's Custom HTML element size limits (and general performance) don't play
-well with a 6.9MB block of inline base64 images, so use the lightweight
-snippet instead:
+GHL has three natural places for this: a Custom CSS field, a Custom HTML
+element, and a footer/tracking JS field. Use the three `ghl-*` files for that:
 
 1. **Upload the images.** In GHL: *Sites → Media Storage*, upload all 6 files
    from `assets/images/`. After uploading, open each file and copy its URL.
 
-2. **Open `ghl/ghl-paste-snippet.html`** and find/replace each of these paths
-   with the matching URL you just copied:
+2. **Open `ghl/ghl-body.html`** and find/replace each of these paths with the
+   matching URL you just copied:
    - `assets/images/drakthys-logo.jpg` (used 4×: nav logo, hero emblem,
      footer logo, shop "Sticker Pack" image)
    - `assets/images/drakthys-snow-washed-tee-front.png`
@@ -54,24 +61,45 @@ snippet instead:
    - `assets/images/drakthys-dragon-hoodie-front.png`
    - `assets/images/drakthys-dragon-hoodie-back.png`
 
-3. **Add a Custom HTML / Custom Code element** to your GHL page (Sites or
-   Funnels → page editor → *+ Add Element → Custom HTML*), and paste the
-   entire contents of `ghl-paste-snippet.html` into it. It already contains
-   the Google Fonts `<link>` tags, the full `<style>` block, the page markup,
-   and the `<script>` block — everything in one paste.
+3. **CSS** — paste `ghl/ghl-style.css` into the page/funnel's Custom CSS
+   field (Settings → Custom CSS, or the page editor's CSS panel). It opens
+   with an `@import` for the Anton + Inter Google Fonts, so it's
+   self-contained — no separate font setup needed. If your GHL plan strips
+   `@import` from that field, add the two lines below to **Settings →
+   Custom CSS/JS → Head Tracking Code** instead:
+   ```html
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+   ```
 
-4. If your GHL plan strips `<link>`/`<style>`/`<script>` tags out of Custom
-   HTML elements, move the Google Fonts `<link>` tags into the page/funnel's
-   **Settings → Custom CSS/JS → Head Tracking Code**, and/or the closing
-   `<script>` block into **Footer Tracking Code** instead — the snippet is
-   already split into clearly labeled sections so this is a copy/paste.
+4. **HTML** — add a Custom HTML element to the page (page editor → *+ Add
+   Element → Custom HTML*) and paste the contents of `ghl/ghl-body.html`
+   (after step 2's find/replace) into it.
 
-5. Because the whole nav/hero/roster/shop/matches section is one HTML block,
+5. **JS** — paste `ghl/ghl-script.js` into **Settings → Custom CSS/JS →
+   Footer Tracking Code**, wrapped in `<script>` tags:
+   ```html
+   <script>
+   ...contents of ghl-script.js...
+   </script>
+   ```
+   (If your GHL page doesn't have a footer tracking field, add another
+   Custom HTML element right after the first one with the script tags
+   included.)
+
+6. Because the whole nav/hero/roster/shop/matches section is one HTML block,
    editing copy (player names, stats, prices, match dates, news posts) is
    just editing text directly inside that Custom HTML element in GHL — no
    rebuild needed. For anything structural (new sections, layout changes),
-   edit `ghl/drakthysghl.html`/`.css`/`.js` here first, regenerate the
-   snippet the same way, then re-paste.
+   edit `ghl/drakthysghl.html`/`.css`/`.js` here first, regenerate the `ghl-*`
+   files the same way, then re-paste.
+
+### Prefer one paste instead of three fields?
+
+Use `ghl/ghl-paste-snippet.html` — it's the same CSS/HTML/JS combined into a
+single block (fonts `<link>` + `<style>` + markup + `<script>`) for pasting
+into one Custom HTML element, if your GHL page doesn't expose separate
+CSS/JS fields.
 
 ### Why not paste the images as base64 into GHL too?
 

@@ -1,0 +1,324 @@
+<!-- ============================================================
+     DRAKTHYS — paste into a GHL "Custom HTML" element.
+
+     Before pasting: upload the 6 files from /assets/images/ to
+     GHL's Media Storage, then find/replace each
+     "assets/images/....jpg/.png" path below with the URL GHL
+     gives you for that upload. See README.md for the full list.
+
+     Pair this with ghl-style.css (Custom CSS) and ghl-script.js
+     (footer/tracking code, or another Custom HTML element with
+     <script> tags around it).
+     ============================================================ -->
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand">
+      <img src="assets/images/drakthys-logo.jpg" alt="Drakthys logo">
+      <span>DRAKTHYS</span>
+    </a>
+    <div class="navlinks" id="navlinks">
+      <a href="#top" class="active">Home</a>
+      <a href="#about">Who we are</a>
+      <a href="#roster">Roster</a>
+      <div class="navitem">
+        <a href="#shop">Shop</a>
+        <div class="subnav">
+          <a href="#shop" onclick="filterShop('apparel')">Apparel</a>
+          <a href="#shop" onclick="filterShop('accessories')">Accessories</a>
+        </div>
+      </div>
+      <a href="#news">News</a>
+    </div>
+    <div class="navcta">
+      <span class="cart-count" id="cartCount">Cart · 0</span>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <img class="hero-emblem" src="assets/images/drakthys-logo.jpg" alt="Drakthys dragon emblem">
+    <div class="hero-scrim"></div>
+    <div class="hero-content wrap">
+      <p class="kicker">Counter-Strike 2, North America</p>
+      <h1>The map ends when we say it ends.</h1>
+      <p class="lede">Drakthys is a five-man roster built on structured executes, disciplined utility and a refusal to let a lead slip. No hero plays. No wasted rounds. Just a team that closes.</p>
+      <div class="hero-actions">
+        <a href="#roster" class="btn solid">Meet the roster</a>
+        <a href="#shop" class="btn">Shop the drop</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners">
+    <div class="wrap">
+      <div class="partner-tier primary">
+        <span>NORTHWIND ENERGY</span>
+        <span>VOLT.GG</span>
+        <span>FORGE PC</span>
+      </div>
+      <div class="partner-tier secondary">
+        <span>RIVAL NUTRITION</span>
+        <span>ANCHOR VPN</span>
+        <span>STATIC PERIPHERALS</span>
+        <span>DUSTOFF ENERGY</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="wrap">
+      <div class="stat"><div class="num">2023</div><div class="lbl">Founded</div></div>
+      <div class="stat"><div class="num">#14</div><div class="lbl">NA ranking</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Titles won</div></div>
+      <div class="stat"><div class="num">140K</div><div class="lbl">Following the hunt</div></div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about-text">
+        <h2 style="text-transform:uppercase;font-size:clamp(28px,3.4vw,38px);margin-bottom:22px;">Built for the long series</h2>
+        <p>We're not chasing one good map. Drakthys runs a full-time practice block, weekly VOD review and a scouting pipeline built to find players who win rounds on read, not on luck.</p>
+        <p>Every set piece is drilled before it's played live. Every loss gets a breakdown, not an excuse. That's the standard the org was built on, and it's the only one we keep.</p>
+      </div>
+      <div class="about-panel">
+        <ul>
+          <li><span>Region</span><span>North America</span></li>
+          <li><span>Division</span><span>Counter-Strike 2</span></li>
+          <li><span>Head coach</span><span>Andrew "nDrew" Cole</span></li>
+          <li><span>Practice block</span><span>6 days / week</span></li>
+          <li><span>Home server</span><span>Tulsa, OK</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="news" id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Drakthys current</h2>
+        <p>Signings, recaps and what's happening around the org.</p>
+      </div>
+      <div class="news-grid">
+        <div class="news-card">
+          <div class="news-img"><span class="mark">DRAKTHYS</span></div>
+          <div class="news-body">
+            <div class="date">SEP 05</div>
+            <h3>Drakthys signs ricochet as starting entry</h3>
+            <p>Formerly of Fenwick Rho, ricochet steps in ahead of the ESL Challenger group stage, replacing an inconsistent entry spot that cost the team map one against Vortis.</p>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-img"><span class="mark">DRAKTHYS</span></div>
+          <div class="news-body">
+            <div class="date">AUG 27</div>
+            <h3>Recap: a clean 2-0 over Cold Harbor</h3>
+            <p>Mirage and Inferno both closed in regulation, with juno's awp carrying the back half of both maps. Full VOD breakdown is up on the Discord.</p>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-img"><span class="mark">DRAKTHYS</span></div>
+          <div class="news-body">
+            <div class="date">AUG 14</div>
+            <h3>New practice facility opens in Tulsa</h3>
+            <p>The roster moves into a dedicated boot camp space ahead of the fall split, with a full-time scrim room and review setup on site.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="roster" id="roster">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>The roster</h2>
+        <p>Five starters, one coach. Built around calls, not carries.</p>
+      </div>
+      <div class="roster-grid">
+        <div class="player">
+          <div class="player-top"><span class="player-tag">vantage</span><span class="player-flag">🇺🇸</span></div>
+          <div class="player-role">In-game leader</div>
+          <div class="player-stats"><div><span class="v">1.08</span><span class="k">Rating</span></div><div><span class="v">0.71</span><span class="k">KAST</span></div><div><span class="v">21</span><span class="k">Age</span></div></div>
+        </div>
+        <div class="player">
+          <div class="player-top"><span class="player-tag">juno</span><span class="player-flag">🇸🇪</span></div>
+          <div class="player-role">AWP</div>
+          <div class="player-stats"><div><span class="v">1.24</span><span class="k">Rating</span></div><div><span class="v">0.68</span><span class="k">KAST</span></div><div><span class="v">19</span><span class="k">Age</span></div></div>
+        </div>
+        <div class="player">
+          <div class="player-top"><span class="player-tag">ricochet</span><span class="player-flag">🇨🇦</span></div>
+          <div class="player-role">Entry fragger</div>
+          <div class="player-stats"><div><span class="v">1.15</span><span class="k">Rating</span></div><div><span class="v">0.66</span><span class="k">KAST</span></div><div><span class="v">22</span><span class="k">Age</span></div></div>
+        </div>
+        <div class="player">
+          <div class="player-top"><span class="player-tag">hollow</span><span class="player-flag">🇩🇰</span></div>
+          <div class="player-role">Support</div>
+          <div class="player-stats"><div><span class="v">1.02</span><span class="k">Rating</span></div><div><span class="v">0.74</span><span class="k">KAST</span></div><div><span class="v">24</span><span class="k">Age</span></div></div>
+        </div>
+        <div class="player">
+          <div class="player-top"><span class="player-tag">ember</span><span class="player-flag">🇫🇮</span></div>
+          <div class="player-role">Lurker</div>
+          <div class="player-stats"><div><span class="v">1.11</span><span class="k">Rating</span></div><div><span class="v">0.69</span><span class="k">KAST</span></div><div><span class="v">20</span><span class="k">Age</span></div></div>
+        </div>
+        <div class="player" style="display:flex;flex-direction:column;justify-content:center;">
+          <div class="who">Head coach<br><strong>Andrew "nDrew" Cole</strong></div>
+          <p style="color:var(--mute);font-size:14px;margin-top:14px;">Former semi-pro IGL. Runs the practice block and calls the scrims.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Shop</h2>
+        <p>The snow washed collection just landed.</p>
+      </div>
+      <div class="shop-tiles">
+        <div class="shop-tile active" data-filter="all" onclick="filterShop('all')">
+          <span class="wm">ALL</span><span class="label">Full collection</span>
+        </div>
+        <div class="shop-tile" data-filter="apparel" onclick="filterShop('apparel')">
+          <span class="wm">FIT</span><span class="label">Apparel</span>
+        </div>
+      </div>
+      <div class="shop-grid">
+        <div class="product" data-cat="apparel">
+          <div class="product-img photo"><span class="product-tag">New</span>
+            <div class="swap-wrap">
+              <img class="front" src="assets/images/drakthys-snow-washed-tee-front.png" alt="Drakthys snow washed tee, front">
+              <img class="back" src="assets/images/drakthys-snow-washed-tee-back.png" alt="Drakthys snow washed tee, back">
+            </div>
+          </div>
+          <div class="product-info">
+            <h4>Snow Washed Oversized Tee</h4>
+            <div class="price">$54.00</div>
+            <button class="btn small add-cart">Add to cart</button>
+          </div>
+        </div>
+        <div class="product" data-cat="apparel">
+          <div class="product-img" style="background:var(--white);"><span class="product-tag">New</span>
+            <img src="assets/images/drakthys-raw-hem-shorts.png" alt="Drakthys raw hem shorts" style="width:66%;filter:none;opacity:1;">
+          </div>
+          <div class="product-info">
+            <h4>Raw Hem Shorts</h4>
+            <div class="price">$46.00</div>
+            <button class="btn small add-cart">Add to cart</button>
+          </div>
+        </div>
+        <div class="product" data-cat="apparel">
+          <div class="product-img photo"><span class="product-tag">New</span>
+            <div class="swap-wrap">
+              <img class="front" src="assets/images/drakthys-dragon-hoodie-front.png" alt="Drakthys dragon hoodie, front">
+              <img class="back" src="assets/images/drakthys-dragon-hoodie-back.png" alt="Drakthys dragon hoodie, back">
+            </div>
+          </div>
+          <div class="product-info">
+            <h4>Dragon Hoodie</h4>
+            <div class="price">$68.00</div>
+            <button class="btn small add-cart">Add to cart</button>
+          </div>
+        </div>
+        <div class="product" data-cat="accessories">
+          <div class="product-img"><span class="product-tag">Restock</span><img src="assets/images/drakthys-logo.jpg" alt="Drakthys sticker pack"></div>
+          <div class="product-info">
+            <h4>Sticker Pack</h4>
+            <div class="price">$12.00</div>
+            <button class="btn small add-cart">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="matches" id="matches">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:36px;">
+        <h2>Matches</h2>
+        <p>Where to watch, and what just happened.</p>
+      </div>
+      <div class="match-tabs">
+        <button class="match-tab active" data-tab="upcoming">Upcoming</button>
+        <button class="match-tab" data-tab="results">Results</button>
+      </div>
+      <div class="match-panel active" data-panel="upcoming">
+        <div class="m-row"><div class="m-date">SEP 14</div><div class="m-mid"><div class="opp">vs. Nightfall Six</div><div class="evt">ESL Challenger &middot; Group A</div></div><div class="m-tag">BO3</div></div>
+        <div class="m-row"><div class="m-date">SEP 21</div><div class="m-mid"><div class="opp">vs. Redline Gaming</div><div class="evt">NA Open Qualifier</div></div><div class="m-tag">BO1</div></div>
+        <div class="m-row"><div class="m-date">SEP 29</div><div class="m-mid"><div class="opp">vs. Ashcourt</div><div class="evt">ESL Challenger &middot; Group A</div></div><div class="m-tag">BO3</div></div>
+      </div>
+      <div class="match-panel" data-panel="results">
+        <div class="m-row"><div class="m-date">SEP 02</div><div class="m-mid"><div class="opp">vs. Cold Harbor</div><div class="evt">Mirage, Inferno</div></div><div class="m-score win">2&ndash;0</div></div>
+        <div class="m-row"><div class="m-date">AUG 26</div><div class="m-mid"><div class="opp">vs. Vortis</div><div class="evt">Ancient, Nuke, Overpass</div></div><div class="m-score loss">1&ndash;2</div></div>
+        <div class="m-row"><div class="m-date">AUG 18</div><div class="m-mid"><div class="opp">vs. Fenwick Rho</div><div class="evt">Anubis, Mirage</div></div><div class="m-score win">2&ndash;0</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <img src="assets/images/drakthys-logo.jpg" alt="">
+    <div class="wrap">
+      <h2>Every server. Every round. Every time.</h2>
+      <p>Follow the hunt on Twitch, Discord and X for scrims, drops and match day.</p>
+      <a href="#" class="btn solid">Follow the hunt</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-col">
+        <div class="foot-brand">
+          <img src="assets/images/drakthys-logo.jpg" alt="Drakthys logo">
+          <span>DRAKTHYS</span>
+        </div>
+        <p class="foot-desc">A Counter-Strike 2 organization built on structure, discipline and the long series.</p>
+        <div class="social-row">
+          <a href="#" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17.5 3H21l-7.5 8.6L22 21h-6.9l-5.4-6.6L3.6 21H0l8.1-9.3L2 3h7l4.9 6L17.5 3Z" fill="#f2f0ec"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#f2f0ec" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" stroke="#f2f0ec" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.1" fill="#f2f0ec"/></svg></a>
+          <a href="#" aria-label="Twitch"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 2 2 6.4v14.4h6V22l3.6-3.2H16L22 13V2H4Zm16 10-3.6 3.6h-4L9 19v-3.4H5.6V4H20v8Z" fill="#f2f0ec"/><rect x="14" y="7" width="1.8" height="5" fill="#0a0a0b"/><rect x="9.5" y="7" width="1.8" height="5" fill="#0a0a0b"/></svg></a>
+          <a href="#" aria-label="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18.9 5.7A16 16 0 0 0 14.8 4l-.4.9a13 13 0 0 1 3.6 1.3 14 14 0 0 0-12 0A13 13 0 0 1 9.6 4.9L9.2 4a16 16 0 0 0-4.1 1.7C2.6 9.6 2 13.4 2.3 17.1a16 16 0 0 0 4.7 2.4l.8-1.3a10 10 0 0 1-1.6-.8l.4-.3a11.5 11.5 0 0 0 10.8 0l.4.3c-.5.3-1 .6-1.6.8l.8 1.3a16 16 0 0 0 4.7-2.4c.4-4.3-.6-8-2.8-11.4ZM9 14.6c-.8 0-1.5-.8-1.5-1.7S8.1 11.2 9 11.2s1.5.8 1.5 1.7-.6 1.7-1.5 1.7Zm6 0c-.8 0-1.5-.8-1.5-1.7s.6-1.7 1.5-1.7 1.5.8 1.5 1.7-.6 1.7-1.5 1.7Z" fill="#f2f0ec"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <p class="h">Shop</p>
+        <a href="#shop">All gear</a>
+        <a href="#shop">Apparel</a>
+        <a href="#shop">Accessories</a>
+      </div>
+      <div class="foot-col">
+        <p class="h">Team</p>
+        <a href="#about">Who we are</a>
+        <a href="#roster">Roster</a>
+        <a href="#matches">Matches</a>
+      </div>
+      <div class="foot-col">
+        <p class="h">Org</p>
+        <a href="#">Media kit</a>
+        <a href="#">Careers</a>
+        <a href="#">Sponsor us</a>
+      </div>
+      <div class="foot-col">
+        <p class="h">Contact</p>
+        <a href="mailto:team@drakthys.gg">team@drakthys.gg</a>
+        <a href="#">Help</a>
+      </div>
+    </div>
+    <div class="foot-news">
+      <p>Stay up to date with <strong>Drakthys</strong>, signings, drops, match day.</p>
+      <form class="foot-news-form" id="joinForm">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Drakthys Esports. All rights reserved.</span>
+      <span>Tulsa, OK</span>
+    </div>
+  </div>
+</footer>
